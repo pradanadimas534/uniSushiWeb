@@ -435,7 +435,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
         </a>
       </header>
 
-      <div className="wave-divider bg-black/25" />
+      <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* ABOUT SECTION */}
       <section className="py-20 md:py-28 2xl:py-36" id="about">
@@ -470,7 +470,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
         </div>
       </section>
 
-      <div className="wave-divider bg-black/25" />
+      <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* FEATURED MENU SLIDER */}
       <section className="py-20 md:py-28 2xl:py-36 bg-black/40 overflow-hidden" id="menu-highlight">
@@ -631,7 +631,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
         </div>
       </section>
 
-      <div className="wave-divider bg-black/25" />
+      <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* REVIEWS SECTION */}
       <section className="py-20 md:py-28 2xl:py-36 bg-black/25 overflow-hidden" id="reviews">
@@ -650,10 +650,10 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
         </div>
       </section>
 
-      <div className="wave-divider bg-black/25" />
+      <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* FAQ SECTION */}
-      <section className="py-16 md:py-24 bg-[#121212] text-paper font-jp" id="faq">
+      <section className="py-16 md:py-24 bg-[#121212] text-paper font-jp min-h-[500px]" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase">
             Got Questions?
@@ -691,10 +691,10 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
         </div>
       </section>
 
-      <div className="wave-divider bg-black/25" />
+      <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* VISIT US SECTION */}
-      <section className="py-20 md:py-28 2xl:py-36 font-jp" id="visit">
+      <section className="py-20 md:py-28 2xl:py-36 font-jp min-h-[400px]" id="visit">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center max-w-xl 2xl:max-w-3xl mx-auto mb-12">
             <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase">

@@ -4,30 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Jost:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <!-- Google Fonts untuk Script Style -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Permanent+Marker&display=swap"
-    rel="stylesheet">
-  <!-- Font Back to Black Demo -->
-  <link href="https://fonts.cdnfonts.com/css/back-to-black-demo" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet">
   <title>Uni Sushi — Restaurant & Bar, Kuta Bali</title>
+
+  <!-- 1. Preconnect Cukup Sekali Sajai untuk Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 2. BUNDLED GOOGLE FONTS (Semua font digabung dalam 1 URL request) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Permanent+Marker&family=Shippori+Mincho:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- 3. Non-blocking Async Loading untuk Font cdnfonts -->
+  <link href="https://fonts.cdnfonts.com/css/back-to-black-demo" rel="stylesheet" media="print"
+    onload="this.media='all'">
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <script async src="//www.instagram.com/embed.js"></script>
+
+  <!-- 5. Defer Script Instagram Embed agar tidak mengganggu initial render -->
+  <script defer src="https://www.instagram.com/embed.js"></script>
 </body>
 
 </html>
