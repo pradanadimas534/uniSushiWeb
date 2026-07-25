@@ -74,17 +74,27 @@ function emojiFor(name) {
 }
 
 function useReveal() {
+  const location = useLocation();
+
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal');
+    const els = document.querySelectorAll('.reveal:not(.in)');
+    if (els.length === 0) return;
+
     const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      }),
-      { threshold: 0.14 }
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
+
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [location.pathname]); // Re-evaluate saat lokasi/rute berubah
 }
 
 function handleHashScroll(e, to) {
@@ -99,7 +109,30 @@ function handleHashScroll(e, to) {
 }
 
 function ElfsightReviews() {
+  const containerRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' } // Mulai load 200px sebelum muncul di layar
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!shouldLoad) return;
+
     const scriptId = 'elfsight-platform-script';
     let script = document.getElementById(scriptId);
 
@@ -108,27 +141,25 @@ function ElfsightReviews() {
       script.id = scriptId;
       script.src = 'https://elfsightcdn.com/platform.js';
       script.async = true;
-      script.defer = true; // Mengoptimalkan urutan eksekusi browser
       document.body.appendChild(script);
     }
-
-    // Fungsi pembersih saat komponen dilepas (unmount)
-    return () => {
-      // Jika widget tidak digunakan di halaman lain, hilangkan dari DOM
-      if (script && script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
-  }, []);
+  }, [shouldLoad]);
 
   return (
-    <div
-      className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full overflow-hidden min-h-[250px]"
-      data-elfsight-app-lazy
-    />
+    <div ref={containerRef} className="w-full overflow-hidden min-h-[300px]">
+      {shouldLoad ? (
+        <div
+          className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full"
+          data-elfsight-app-lazy
+        />
+      ) : (
+        <div className="w-full h-[300px] flex items-center justify-center text-paper/30 font-jp border border-paper/10 rounded-2xl">
+          <span>loading...</span>
+        </div>
+      )}
+    </div>
   );
 }
-
 
 function TopNav({ scrolled, content, wa, mobileOpen, setMobileOpen }) {
   const location = useLocation();
@@ -335,7 +366,14 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
       {/* HERO SECTION */}
       <header className="relative min-h-screen max-h-[1200px] 2xl:max-h-[1400px] flex items-center justify-center text-center overflow-hidden px-4">
         {heroImg ? (
-          <img src={imgSrc(heroImg)} alt={content.brand} className="absolute inset-0 w-full h-full object-cover" />
+          <img
+            src={imgSrc(heroImg)}
+            alt={content.brand}
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-[#1c2f22] via-ink to-[#0e1712]" />
         )}
@@ -722,9 +760,20 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
   );
 }
 
+
+// Helper function diekstrak ke luar agar tidak diciptakan ulang setiap render
+const getWaLink = (waProp, itemName) => {
+  if (waProp) return waProp;
+  const encodedName = encodeURIComponent(itemName || 'Menu');
+  return `https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20${encodedName}`;
+};
+
 function MenuPage({ content, categories: propsCategories, items, wa, scrolled, mobileOpen, setMobileOpen }) {
+  // Panggil useReveal jika dibutuhkan, pastikan internal implementation hook-nya sudah aman dari memory leak
   useReveal();
+
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const scrollRef = useRef(null);
 
   const categoriesList = useMemo(() => {
     const rawCategories = Array.isArray(propsCategories) && propsCategories.length > 0
@@ -734,22 +783,21 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
     return [{ id: 'all', name: 'All Menu' }, ...rawCategories];
   }, [propsCategories]);
 
-  const dataItems = Array.isArray(items) ? items : [];
+  const dataItems = useMemo(() => (Array.isArray(items) ? items : []), [items]);
 
   const filteredItems = useMemo(() => {
     if (selectedCategory === 'all') return dataItems;
 
+    const targetCat = String(selectedCategory);
     return dataItems.filter((item) => {
       return (
-        String(item.categories) === String(selectedCategory) ||
-        String(item.categoryId) === String(selectedCategory) ||
-        String(item.category_id) === String(selectedCategory) ||
+        String(item.categories) === targetCat ||
+        String(item.categoryId) === targetCat ||
+        String(item.category_id) === targetCat ||
         item.category === selectedCategory
       );
     });
   }, [dataItems, selectedCategory]);
-
-  const scrollRef = useRef(null);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -784,7 +832,6 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
 
           {/* TAB BAR FILTER KATEGORI */}
           <div className="relative max-w-5xl 2xl:max-w-7xl mx-auto mb-10 2xl:mb-16 px-2 md:px-8">
-            {/* Tombol Kiri */}
             <button
               onClick={() => scroll('left')}
               aria-label="Scroll left"
@@ -801,7 +848,6 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
               </svg>
             </button>
 
-            {/* Container List Kategori */}
             <div
               ref={scrollRef}
               className="flex items-center gap-2 2xl:gap-4 overflow-x-auto py-2 px-2 md:px-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scroll-smooth font-jp"
@@ -823,7 +869,6 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
               })}
             </div>
 
-            {/* Tombol Kanan */}
             <button
               onClick={() => scroll('right')}
               aria-label="Scroll right"
@@ -841,10 +886,10 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
             </button>
           </div>
 
-          {/* Grid Menu Items */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 2xl:gap-10">
+          {/* GRID MENU ITEMS (Ditambahkan min-h-[500px] untuk mencegah Layout Shift/CLS saat perpindahan kategori) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8 2xl:gap-10 min-h-[500px]">
             {filteredItems.length === 0 && (
-              <div className="text-center py-16 col-span-full bg-paper/[0.02] border border-paper/10 rounded-2xl">
+              <div className="text-center py-16 col-span-full bg-paper/[0.02] border border-paper/10 rounded-2xl h-[250px] flex items-center justify-center">
                 <p className="text-paper/45 text-base 2xl:text-xl font-jp">
                   There are no menus available for this category yet.
                 </p>
@@ -852,23 +897,32 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
             )}
 
             {filteredItems.map((it, index) => {
-              const itemWa = typeof wa !== 'undefined'
-                ? wa
-                : `https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20${encodeURIComponent(it.name || 'Menu')}`;
+              const itemWa = getWaLink(wa, it.name);
+              const isBestSeller =
+                it.isFeatured ||
+                it.is_featured ||
+                it.isPopular ||
+                it.is_popular ||
+                /best seller|terlaris|favorite/i.test(it.badge || it.tag || '');
 
-              const isBestSeller = it.isFeatured || it.is_featured || it.isPopular || it.is_popular || /best seller|terlaris|favorite/i.test(it.badge || it.tag || '');
+              const rawImg = it.image || it.img;
+              const imageSrc = typeof imgSrc === 'function' ? imgSrc(rawImg) : rawImg;
 
               return (
                 <div
                   key={it.id || index}
                   className="group relative flex flex-col justify-between rounded-2xl overflow-hidden bg-paper/[0.03] border border-paper/10 hover:border-gold/50 transition-all duration-300 shadow-xl h-full"
                 >
+                  {/* Container Gambar dengan aspek rasio yang dikunci */}
                   <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-black/40">
-                    {it.image || it.img ? (
+                    {imageSrc ? (
                       <img
-                        src={typeof imgSrc === 'function' ? imgSrc(it.image || it.img) : (it.image || it.img)}
+                        src={imageSrc}
                         alt={it.name || 'Menu Item'}
                         loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="500"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
@@ -901,7 +955,9 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
                         </h3>
                         {it.price && (
                           <span className="text-gold font-bold text-sm 2xl:text-lg whitespace-nowrap font-jp">
-                            {typeof it.price === 'number' ? `Rp ${it.price.toLocaleString('id-ID')}` : it.price}
+                            {typeof it.price === 'number'
+                              ? `Rp ${it.price.toLocaleString('id-ID')}`
+                              : it.price}
                           </span>
                         )}
                       </div>
