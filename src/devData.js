@@ -150,10 +150,10 @@ export const DEV_DATA = {
   // { id: 88, categories: 11, name: 'BLT Sandwich' },
 
   // Dessert
-  // { id: 89, categories: 12, name: 'Brownies' },
-  // { id: 90, categories: 12, name: 'Cheese Cake' },
-  // { id: 91, categories: 12, name: 'Ice Cream Scoup' },
-  // { id: 92, categories: 12, name: 'Manggo Sticky Rice' },
+  // { id: 89, categories: 11, name: 'Brownies' },
+  // { id: 90, categories: 11, name: 'Cheese Cake' },
+  // { id: 91, categories: 11, name: 'Ice Cream Scoup' },
+  // { id: 92, categories: 11, name: 'Manggo Sticky Rice' },
 
   // Appetizer
   { id: 93, categories: 12, name: 'Gyoza', image: '/images/gyoza_chiken.webp' },
