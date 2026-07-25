@@ -209,7 +209,7 @@ export const DEV_DATA = {
   { id: 135, name: 'Manggo Daiquiri', image: '/images/manggo_daiquiri.webp' },
   { id: 136, name: 'Pinacolada', image: '/images/pinacolada.webp' },
   { id: 137, name: 'Cosmic Colanda', image: '/images/cosmic_colanda.webp' },
-  { id: 138, name: 'Sex On The Beach', image: '/images/sex_on_the_beach.jpg'}
+  { id: 138, name: 'Sex On The Beach', image: '/images/sex_on_the_beach.webp'}
 ],
 
   instagramPosts: [
