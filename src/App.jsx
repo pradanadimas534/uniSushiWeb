@@ -276,7 +276,7 @@ function TopNav({ scrolled, content, wa, mobileOpen, setMobileOpen }) {
 
 function PageFooter({ content, wa }) {
   return (
-    <footer className="bg-black/40 border-t border-paper/10 pt-16 pb-8 2xl:pt-24 2xl:pb-12 font-jp">
+    <footer className="bg-black/40 border-t border-paper/10 pt-16 pb-8 2xl:pt-24 2xl:pb-12 font-jp min-h-[320px] 2xl:min-h-[400px] shrink-0">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 2xl:gap-16 mb-12">
 
@@ -658,9 +658,14 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
       <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* REVIEWS SECTION */}
-      <section className="py-20 md:py-28 2xl:py-36 bg-black/25 overflow-hidden" id="reviews">
+      <section
+        id="reviews"
+        className="py-20 md:py-28 2xl:py-36 bg-black/25 overflow-hidden min-h-[650px] sm:min-h-[700px] 2xl:min-h-[800px] shrink-0"
+      >
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="reveal text-center max-w-xl 2xl:max-w-3xl mx-auto mb-10">
+
+          {/* Header Section (Hapus 'reveal' atau ganti dengan transition-opacity) */}
+          <div className="text-center max-w-xl 2xl:max-w-3xl mx-auto mb-10">
             <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase font-jp">
               Google Reviews
             </div>
@@ -668,16 +673,20 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
               What Our <span className="text-gold italic">Customers Say</span>
             </h2>
           </div>
-          <div className="min-h-[280px] flex items-center justify-center">
+
+          {/* Container Elfsight Widget */}
+          {/* Ganti min-h-[300px] menjadi min-h-[560px] sm:min-h-[580px] */}
+          <div className="w-full overflow-hidden min-h-[560px] sm:min-h-[580px] 2xl:min-h-[620px] shrink-0">
             <ElfsightReviews />
           </div>
+
         </div>
       </section>
 
       <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* FAQ SECTION */}
-      <section className="py-16 md:py-24 bg-[#121212] text-paper font-jp min-h-[500px]" id="faq">
+      <section className="py-16 md:py-24 bg-[#121212] text-paper font-jp min-h-[700px] 2xl:min-h-[850px] shrink-0" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase">
             Got Questions?
@@ -687,30 +696,40 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
             Frequently Asked <span className="text-[#FF5722] italic">Questions</span>
           </h2>
 
-          <div className="space-y-4">
-            {(data?.faqData || []).map((item, index) => {
-              const isOpen = openFaqIndex === index;
-              return (
-                <div
-                  key={index}
-                  className="border border-white/10 rounded-xl overflow-hidden bg-white/5 transition-colors duration-200"
-                >
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full flex items-center justify-between p-6 text-left text-lg sm:text-xl 2xl:text-2xl font-medium text-paper hover:text-gold transition-colors focus:outline-none"
+          {/* Reserve space jika data FAQ masih kosong / loading */}
+          <div className="space-y-4 min-h-[350px]">
+            {data?.faqData && data.faqData.length > 0 ? (
+              data.faqData.map((item, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div
+                    key={index}
+                    className="border border-white/10 rounded-xl overflow-hidden bg-white/5 transition-colors duration-200"
                   >
-                    <span>{item.q}</span>
-                    <ChevronDown className={`ml-4 text-gold text-base 2xl:text-xl transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
-                  </button>
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full flex items-center justify-between p-6 text-left text-lg sm:text-xl 2xl:text-2xl font-medium text-paper hover:text-gold transition-colors focus:outline-none"
+                    >
+                      <span>{item.q}</span>
+                      <ChevronDown className={`ml-4 text-gold text-base 2xl:text-xl transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
 
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-2 text-base sm:text-lg 2xl:text-xl text-paper/80 leading-relaxed border-t border-white/5">
-                      {item.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                    {isOpen && (
+                      <div className="px-6 pb-6 pt-2 text-base sm:text-lg 2xl:text-xl text-paper/80 leading-relaxed border-t border-white/5">
+                        {item.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            ) : (
+              /* Skeleton Placeholder sederhana saat initial render */
+              <div className="space-y-4">
+                {[1, 2, 3, 4].map((n) => (
+                  <div key={n} className="h-[72px] bg-white/5 border border-white/10 rounded-xl animate-pulse" />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -718,7 +737,10 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
       <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* VISIT US SECTION */}
-      <section className="py-20 md:py-28 2xl:py-36 font-jp min-h-[400px]" id="visit">
+      <section
+        id="visit"
+        className="py-20 md:py-28 2xl:py-36 font-jp min-h-[650px] sm:min-h-[750px] 2xl:min-h-[850px] flex flex-col justify-center shrink-0"
+      >
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="reveal text-center max-w-xl 2xl:max-w-3xl mx-auto mb-12">
             <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase">
@@ -767,11 +789,12 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
                 <a href={`https://instagram.com/${content.instagram || ''}`} className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-9 2xl:py-4 text-base sm:text-lg 2xl:text-xl font-bold border border-paper/25 text-paper hover:border-paper/50 transition-colors">@{content.instagram}</a>
               </div>
             </div>
-            <div className="reveal rounded-2xl overflow-hidden bg-black/40 border border-paper/10 h-[380px] sm:h-[450px] 2xl:h-[550px] relative w-full">
+            {/* Hapus class 'reveal' dari div wrapper ini */}
+            <div className="rounded-2xl overflow-hidden bg-black/40 border border-paper/10 h-[380px] sm:h-[450px] 2xl:h-[550px] relative w-full shrink-0">
               <iframe
                 title="Location"
                 className="absolute inset-0 w-full h-full border-0"
-                src={`https://maps.google.com/maps?width=600&height=400&hl=en&q=UNI%20Sport%20Bar%20Caf%C3%A9&t=&z=14&ie=UTF8&iwloc=B&output=embed`}
+                src="https://maps.google.com/maps?width=600&height=400&hl=en&q=UNI%20Sport%20Bar%20Caf%C3%A9&t=&z=14&ie=UTF8&iwloc=B&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
