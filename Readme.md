@@ -1,153 +1,155 @@
 DAFTAR MENU TANPA GAMBAR
 
 [SOUP]
-- Cream Of Chicken Soup (ID: 2)
-- Miso Soup (ID: 3)
-- Egg Drop Soup (ID: 4)
-- Prawn Clear Soup (ID: 5)
+- Cream Of Chicken Soup
+- Miso Soup 
+- Egg Drop Soup 
+- Prawn Clear Soup
 
-Nigiri / Sashimi
-• Sake / Salmon
-• Maguro / Tuna
-• Butter Fish: 
-• Hamachi / Yellowtail: 
-• Hamachi Toro / Yellow tail belly: 
-• Sake Toro / Salmon belly: 
-• Ebi / Shrimp: 
-• Tamago / Egg omelette: 
-• Unagi / Eel: 
-• Tobiko / Flying fish roe: 
-• Kani / Crab stick: 
-• Smoked Salmon: 
+[Nigiri / Sashimi]
+- Sake / Salmon
+- Maguro / Tuna
+- Butter Fish: 
+- Hamachi / Yellowtail: 
+- Hamachi Toro / Yellow tail belly: 
+- Sake Toro / Salmon belly: 
+- Ebi / Shrimp: 
+- Tamago / Egg omelette: 
+- Unagi / Eel: 
+- Tobiko / Flying fish roe: 
+- Kani / Crab stick: 
+- Smoked Salmon: 
 
 [SUSHI - SIMPLE NORI]
-- Spicy Salmon (ID: 7)
-- Spicy Tuna Roll (ID: 8)
-- California Roll (ID: 9)
-- Shrimp Tempura Roll (ID: 10)
-- Spider Roll (ID: 11)
-- Bagel Roll (ID: 12)
-- Philadelphia Roll (ID: 13)
-- Vegetable Roll (ID: 14)
-- Alvocado Cucumber Roll (ID: 15)
-- Tuna Roll/Maki (ID: 17)
-- Salmon Roll/Maki (ID: 18)
-- Alvocado Roll/Maki (ID: 19)
-- Cucumber Roll/Maki (ID: 20)
-- Salmon Skin Roll (ID: 21)[TACO SUSHI]
-- Tree Flavor Taco (ID: 22)
-- Crispy Tuna Poke Taco (ID: 23)
-- Tuna Tataki Taco (ID: 24)
-- Burrito Sushi (ID: 25)
+- Spicy Salmon 
+- Spicy Tuna Roll 
+- California Roll 
+- Shrimp Tempura Roll 
+- Spider Roll 
+- Bagel Roll 
+- Philadelphia Roll 
+- Vegetable Roll 
+- Alvocado Cucumber Roll 
+- Tuna Roll/Maki 
+- Salmon Roll/Maki 
+- Alvocado Roll/Maki 
+- Cucumber Roll/Maki 
+- Salmon Skin Roll
+
+[TACO SUSHI]
+- Tree Flavor Taco 
+- Crispy Tuna Poke Taco 
+- Tuna Tataki Taco 
+- Burrito Sushi 
 
 [SUSHI COMBO]
-- Hangout Sushi Set (ID: 28)
-- Double Site Roll (ID: 29)
+- Hangout Sushi Set 
+- Double Site Roll
 
-
-- Chicken And Cashewnut (ID: 30)
-- braised Pork Belly & Bok Coy (ID: 31)
-- Sweet & Sour Chicken (ID: 32)
-- Stir Fry Broccoli & Chicken (ID: 33)
-- General TSOS Chicken (ID: 34)
-- Mie Goreng(Spesial Fried Noodles) (ID: 36)
-- Chicken Satay (ID: 37)
-- Chicken Black Pepper Mushroom (ID: 38)
-- Grilled Atlantic Salmon (ID: 39)
+[Kategorinya nggak ada]
+- Chicken And Cashewnut 
+- braised Pork Belly & Bok Coy 
+- Sweet & Sour Chicken 
+- Stir Fry Broccoli & Chicken 
+- General TSOS Chicken 
+- Mie Goreng(Spesial Fried Noodles) 
+- Chicken Satay 
+- Chicken Black Pepper Mushroom
+- Grilled Atlantic Salmon 
 
 [HOUSE ROLL]
-- Rainbow Roll (ID: 41)
-- Rock Starr Roll (ID: 42)
-- Crispy Rice Spicy Tuna (ID: 43)
-- Rock & Roll (ID: 44)
-- Funky Roll (ID: 45)
-- Mango Roll/Seasoned (ID: 46)
-- Cheese Tempura Chunch Roll (ID: 47)
-- Crunch Blast Roll (ID: 48)
-- Snow White Roll (ID: 49)
-- Rock Star Roll (ID: 50)
-- Bed Dragon Roll (ID: 51)
-- Super Crunch Roll (ID: 52)
-- Crazy Roll (ID: 53)
-- Pink Lady Roll (ID: 54)
-- Red Hot Crunch Roll (ID: 55)
-- Pophies Roll (ID: 56)
-- Red Fire Roll (ID: 57)
-- Fuji Roll (ID: 58)
-- Geisha Roll (ID: 59)
+- Rainbow Roll 
+- Rock Starr Roll 
+- Crispy Rice Spicy Tuna 
+- Rock & Roll 
+- Funky Roll 
+- Mango Roll/Seasoned
+- Cheese Tempura Chunch Roll 
+- Crunch Blast Roll 
+- Snow White Roll 
+- Rock Star Roll 
+- Bed Dragon Roll 
+- Super Crunch Roll 
+- Crazy Roll 
+- Pink Lady Roll 
+- Red Hot Crunch Roll 
+- Pophies Roll 
+- Red Fire Roll 
+- Fuji Roll 
+- Geisha Roll
 
 [WESTERN CUISINE]
-- Cheese Burger (ID: 61)
-- Supreme Beef Burger (ID: 62)
-- Chicken Burger (ID: 64)
-- Aglio A Olio With Grill Praw/Chicken (ID: 65)
-- carbonara (ID: 66)
-- Bolognese (ID: 67)
-- Seafood Spagetti (ID: 68)
+- Cheese Burger 
+- Supreme Beef Burger 
+- Chicken Burger 
+- Aglio A Olio With Grill Praw/Chicken 
+- carbonara 
+- Bolognese
+- Seafood Spagetti 
 
 [THE FIRE WOK]
-- Spicy Beef Salad (ID: 69)
-- Beef Black Pepper Mushroom (ID: 71)
-- Pork Chop Suey (ID: 72)
-- Oriental Spicy Prawn (ID: 73)
-- Veggie Delight Chicken (ID: 74)
-- Orange Chicken (ID: 75)
-- Thai Green Curry (ID: 76)
-- Kung Pao Chicken (ID: 77)
+- Spicy Beef Salad 
+- Beef Black Pepper Mushroom 
+- Pork Chop Suey 
+- Oriental Spicy Prawn 
+- Veggie Delight Chicken 
+- Orange Chicken 
+- Thai Green Curry 
+- Kung Pao Chicken 
 
 [FRIED ROLL]
-- Bali Rock City Roll (ID: 78)
-- Bali Side Kick Roll (ID: 79)
-- Golden Fried Roll (ID: 80)
-- Beef Steak Uni (ID: 81)
-- Rocky Roll (ID: 82)
-- Tempura Fried Roll (ID: 83)
-- Flying Fish Roll (ID: 84)
-- Aussie Roll (ID: 85)
+- Bali Rock City Roll 
+- Bali Side Kick Roll 
+- Golden Fried Roll 
+- Beef Steak Uni 
+- Rocky Roll 
+- Tempura Fried Roll 
+- Flying Fish Roll 
+- Aussie Roll
 
 [SANDWICH]
-- Juicy Steak BBQ Sauce (ID: 87)
-- BLT Sandwich (ID: 88)
+- Juicy Steak BBQ Sauce 
+- BLT Sandwich 
 
 [DESSERT]
-- Brownies (ID: 89)
-- Cheese Cake (ID: 90)
-- Ice Cream Scoup (ID: 91)
-- Manggo Sticky Rice (ID: 92)
+- Brownies 
+- Cheese Cake 
+- Ice Cream Scoup 
+- Manggo Sticky Rice 
 
 [APPETIZER]
-- Crab Tempura (ID: 94)
-- Ebi Tempura (ID: 95)
-- Chicken Karaage (ID: 96)
-- Squid Karaage (ID: 97)
-- Yakitori (ID: 98)
-- Sake Kama/Salmon Neck (ID: 99)
-- Chiken Wings (ID: 100)
-- Spring Roll (ID: 101)
-- Onion Ring (ID: 102)
-- Potato Wedges (ID: 103)
-- fries (ID: 104)
+- Crab Tempura 
+- Ebi Tempura 
+- Chicken Karaage 
+- Squid Karaage 
+- Yakitori 
+- Sake Kama/Salmon Neck 
+- Chiken Wings 
+- Spring Roll 
+- Onion Ring 
+- Potato Wedges 
+- fries 
 
 [SUPREME]
-- Super Fire Roll (ID: 105)
-- Volcano Roll (ID: 106)
-- Royal Roll (ID: 107)
-- Pasta Roll (ID: 108)
-- Poke Bowl (ID: 109)
-- Salmon Salsa Roll (ID: 111)
-- Chefs Special Roll (ID: 112)
-- Ocean Wafe Roll (ID: 113)
+- Super Fire Roll 
+- Volcano Roll 
+- Royal Roll 
+- Pasta Roll 
+- Poke Bowl 
+- Salmon Salsa Roll 
+- Chefs Special Roll 
+- Ocean Wafe Roll 
 
 [SALAD]
-- Edamane (ID: 114)
-- Sunomono/Cucumber Crab Salad (ID: 116)
-- Classic Caesar Salad (ID: 118)
-- Thai beef Salad (ID: 119)
-- Greek Salad (ID: 120)
-- Fresh Garden Salad (ID: 121)
-- Smoke Salmon & Avo Salad (ID: 122)
+- Edamane 
+- Sunomono/Cucumber Crab Salad 
+- Classic Caesar Salad 
+- Thai beef Salad 
+- Greek Salad 
+- Fresh Garden Salad 
+- Smoke Salmon & Avo Salad 
 
 [PIZZA EDITION]
-- Seafood Pizza (ID: 125)
-- White Pizza (ID: 126)
-- Salani Pizza (ID: 127)
+- Seafood Pizza 
+- White Pizza
+- Salani Pizza 
