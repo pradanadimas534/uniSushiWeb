@@ -318,19 +318,15 @@ function PageFooter({ content, wa }) {
                 href={content.grabUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-paper/[0.04] border border-paper/10 hover:border-gold/50 hover:bg-paper/[0.08] text-paper/80 hover:text-gold text-xs 2xl:text-sm font-medium transition-all group"
-              >
+                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"              >
                 <span>GrabFood</span>
-                <span className="text-gold/60 group-hover:translate-x-0.5 transition-transform">↗</span>
               </a>
               <a
                 href={content.gojekUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-paper/[0.04] border border-paper/10 hover:border-gold/50 hover:bg-paper/[0.08] text-paper/80 hover:text-gold text-xs 2xl:text-sm font-medium transition-all group"
-              >
+                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"              >
                 <span>GoFood</span>
-                <span className="text-gold/60 group-hover:translate-x-0.5 transition-transform">↗</span>
               </a>
             </div>
           </div>
@@ -365,76 +361,104 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
 
       {/* HERO SECTION */}
       <header className="relative min-h-screen max-h-[1200px] 2xl:max-h-[1400px] flex items-center justify-center text-center overflow-hidden px-4">
+        {/* Background Media / Gradient */}
         {heroImg ? (
           <img
             src={imgSrc(heroImg)}
             alt={content.brand}
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
             decoding="sync"
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-[#1c2f22] via-ink to-[#0e1712]" />
         )}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 opacity-[0.08] bg-seigaiha" style={{ backgroundSize: '56px 28px' }} />
 
-        <div className="relative max-w-3xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto pt-24 pb-32 2xl:pt-36 2xl:pb-40 flex flex-col items-center">
-          <div className="eyebrow justify-center flex mb-4 2xl:text-base font-jp">{content.heroEyebrow}</div>
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        <div
+          className="absolute inset-0 opacity-[0.08] bg-seigaiha pointer-events-none"
+          style={{ backgroundSize: '56px 28px' }}
+        />
 
+        {/* Main Hero Content Container */}
+        <div className="relative max-w-3xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto pt-24 pb-32 2xl:pt-36 2xl:pb-40 flex flex-col items-center z-10">
+          {/* Eyebrow */}
+          <div className="eyebrow flex justify-center mb-4 2xl:text-base font-jp">
+            {content.heroEyebrow}
+          </div>
+
+          {/* Brand Logo */}
           <img
             src={imgSrc(content.logo)}
             alt={`${content.brand} Logo`}
-            className="w-24 sm:w-28 md:w-32 2xl:w-44 3xl:w-52 aspect-square rounded-full object-cover border-4 border-white/20 shadow-2xl mb-1 sm:mb-2 shrink-0"
+            className="w-24 sm:w-28 md:w-32 2xl:w-44 3xl:w-52 aspect-square rounded-full object-cover border-4 border-white/20 shadow-2xl mb-2 shrink-0"
           />
 
+          {/* Title Section */}
           <div className="flex flex-col items-center my-2 select-none w-full">
-            {/* 2. Tambahkan margin atas negatif (-mt-2 sm:-mt-4) agar teks uni tertarik ke atas mendekati logo */}
+            {/* Dynamic Styled Word: "uni" */}
             <span
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-[9rem] 3xl:text-[11rem] text-[#FF5722] leading-none drop-shadow-md -mt-2 sm:-mt-4 -mb-2 md:-mb-3 2xl:-mb-6 z-10 italic inline-flex items-baseline"
-              style={{ fontFamily: "'Lora', serif", fontWeight: 600 }}
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-[9rem] 3xl:text-[11rem] text-[#FF5722] leading-none drop-shadow-md -mt-2 sm:-mt-4 -mb-2 md:-mb-3 2xl:-mb-6 z-10 italic inline-flex items-baseline font-serif font-semibold"
+              style={{ fontFamily: "'Lora', serif" }}
             >
-              {/* Huruf u */}
               <span className="text-[1.35em] leading-none">u</span>
-
-              {/* Huruf ni */}
               <span>ni</span>
             </span>
+
+            {/* Main Keyword Title: "SUSHI" */}
             <span
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-[6.5rem] 3xl:text-[8rem] text-white uppercase tracking-wider leading-none drop-shadow-xl"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl 2xl:text-[6.5rem] 3xl:text-[8rem] text-white uppercase tracking-wider leading-none drop-shadow-xl font-cursive"
               style={{ fontFamily: "'Permanent Marker', cursive" }}
             >
               SUSHI
             </span>
 
-            <div className="flex items-center justify-center gap-3 mt-4 2xl:mt-8 text-paper/70 w-full">
-              <span className="w-8 sm:w-12 2xl:w-24 h-[1px] bg-paper/30"></span>
-              <span className="text-[10px] sm:text-xs md:text-sm 2xl:text-base 3xl:text-lg uppercase tracking-[0.25em] sm:tracking-[0.3em] font-semibold text-paper/90 text-center">
+            {/* Sub-tagline Divider */}
+            <div className="flex items-center justify-center gap-3 mt-4 2xl:mt-8 text-paper/70 w-full max-w-lg">
+              <span className="flex-1 h-[1px] bg-paper/30 max-w-[96px]" />
+              <span className="text-[10px] sm:text-xs md:text-sm 2xl:text-base 3xl:text-lg uppercase tracking-[0.25em] sm:tracking-[0.3em] font-semibold text-paper/90 text-center whitespace-nowrap">
                 WE SERVE THE BEST
               </span>
-              <span className="w-8 sm:w-12 2xl:w-24 h-[1px] bg-paper/30"></span>
+              <span className="flex-1 h-[1px] bg-paper/30 max-w-[96px]" />
             </div>
           </div>
 
+          {/* Lede / Description */}
           <p className="text-paper/75 text-sm md:text-base 2xl:text-xl 3xl:text-2xl leading-relaxed mt-6 mb-8 2xl:mt-10 2xl:mb-12 max-w-xl 2xl:max-w-3xl mx-auto px-2">
             {content.heroLede}
           </p>
 
-          <div className="flex flex-wrap gap-4 2xl:gap-6 justify-center">
-            <Link to="/menu" className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-10 2xl:py-5 2xl:text-lg font-semibold bg-gold text-ink hover:bg-gold/85 transition-colors shadow-lg">
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 2xl:gap-6 justify-center items-center">
+            <Link
+              to="/menu"
+              className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-10 2xl:py-5 2xl:text-lg font-semibold bg-gold text-ink hover:bg-gold/85 transition-colors shadow-lg"
+            >
               Explore Menu
             </Link>
-            <a href={wa} className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-10 2xl:py-5 2xl:text-lg font-semibold border border-paper/40 text-paper hover:bg-paper hover:text-ink transition-colors">
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-10 2xl:py-5 2xl:text-lg font-semibold border border-paper/40 text-paper hover:bg-paper hover:text-ink transition-colors"
+            >
               Reserve via WhatsApp
             </a>
           </div>
         </div>
-        <a href="#about" onClick={(e) => handleHashScroll(e, '#about')} aria-label="Scroll" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper/60 hover:text-gold transition-colors animate-bounce">
+
+        {/* Scroll Down Indicator */}
+        <a
+          href="#about"
+          onClick={(e) => handleHashScroll(e, '#about')}
+          aria-label="Scroll down to about section"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-paper/60 hover:text-gold transition-colors animate-bounce z-10"
+        >
           <ChevronDown size={26} className="2xl:w-10 2xl:h-10" />
         </a>
       </header>
-
       <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* ABOUT SECTION */}

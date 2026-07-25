@@ -14,6 +14,7 @@ export default {
       fontFamily: {
         serif: ['"Shippori Mincho"', '"Noto Serif", Georgia, serif'],
         sans: ['"Jost"', '"Inter"', 'system-ui', 'sans-serif'],
+        brand: ["'Back to Black Demo'", 'cursive'],
       },
       backgroundImage: {
         seigaiha:

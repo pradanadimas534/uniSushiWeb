@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 1. Kumpulkan @font-face di paling atas file agar browser membacanya pertama kali */
+@font-face {
+  font-family: 'Back to Black Demo';
+  src: url('https://fonts.cdnfonts.com/s/16086/BacktoBlackDemo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 🔥 Mencegah teks tak terlihat saat dimuat */
+}
+
 @layer base {
   html { scroll-behavior: smooth; }
   body {
@@ -44,10 +53,12 @@
   /* Repeating seigaiha wave-crest divider between sections */
   .wave-divider {
     height: 26px;
+    min-height: 26px; /* 🛠️ FIX CLS: Mengunci tinggi agar layout tidak melompat */
     background-image: theme('backgroundImage.seigaiha');
     background-repeat: repeat-x;
     background-position: center;
     opacity: .55;
+    flex-shrink: 0;
   }
 
   .menu-tab {
