@@ -13,8 +13,8 @@ export const DEV_DATA = {
     aboutImage: '/images/About01.webp',
     aboutText: "Founded in 2016, Uni blends international flavors with local produce — a place for sports, late nights and the best hangover cure in town.\n\nWe're more than just a restaurant. We're your neighborhood gathering spot where great food meets great company, and every game feels like a celebration.\n\nFrom our signature cocktails to comfort food classics, everything is crafted with passion and served with the warmth that makes Uni feel like home.",
     address: 'Jl. Benesari, Kuta, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia',
-    phone: '+62 895-4216-45000',
-    whatsapp: '62895421645000',
+    phone: '+62-813-3990-099',
+    whatsapp: '628133990099',
     email: 'contact@unicafebali.com',
     instagram: 'unisushiasianfusion',
     hours: [

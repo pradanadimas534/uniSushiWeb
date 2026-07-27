@@ -108,31 +108,9 @@ function handleHashScroll(e, to) {
   }
 }
 
+
 function ElfsightReviews() {
-  const containerRef = useRef(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '200px' } // Mulai load 200px sebelum muncul di layar
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!shouldLoad) return;
-
     const scriptId = 'elfsight-platform-script';
     let script = document.getElementById(scriptId);
 
@@ -143,23 +121,16 @@ function ElfsightReviews() {
       script.async = true;
       document.body.appendChild(script);
     }
-  }, [shouldLoad]);
+  }, []);
 
   return (
-    <div ref={containerRef} className="w-full overflow-hidden min-h-[300px]">
-      {shouldLoad ? (
-        <div
-          className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full"
-          data-elfsight-app-lazy
-        />
-      ) : (
-        <div className="w-full h-[300px] flex items-center justify-center text-paper/30 font-jp border border-paper/10 rounded-2xl">
-          <span>loading...</span>
-        </div>
-      )}
-    </div>
+    <div
+      className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full overflow-hidden"
+      data-elfsight-app-lazy
+    />
   );
 }
+
 
 function TopNav({ scrolled, content, wa, mobileOpen, setMobileOpen }) {
   const location = useLocation();
@@ -305,8 +276,14 @@ function PageFooter({ content, wa }) {
             <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">Connect</h4>
             <div className="flex flex-col gap-2.5 2xl:gap-3">
               <a href={wa} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">WhatsApp</a>
+
               <a href={`https://instagram.com/${content.instagram || ''}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Instagram</a>
+
               <a href={`mailto:${content.email || ''}`} className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Email</a>
+
+              <a href='https://www.facebook.com/people/Uni-Sport-Bar-Caf%C3%A9/61582331492032/' target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Facebook</a>
+
+              <a href='' target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">TikTok</a>
             </div>
           </div>
 
@@ -315,17 +292,17 @@ function PageFooter({ content, wa }) {
             <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">Order Delivery</h4>
             <div className="flex flex-col gap-2.5">
               <a
-                href={content.grabUrl || '#'}
+                // href={content.grabUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"              >
+                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
                 <span>GrabFood</span>
               </a>
               <a
-                href={content.gojekUrl || '#'}
+                // href={content.gojekUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"              >
+                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
                 <span>GoFood</span>
               </a>
             </div>
@@ -664,7 +641,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
       >
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Header Section (Hapus 'reveal' atau ganti dengan transition-opacity) */}
+          {/* Header Section */}
           <div className="text-center max-w-xl 2xl:max-w-3xl mx-auto mb-10">
             <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase font-jp">
               Google Reviews
@@ -674,9 +651,8 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
             </h2>
           </div>
 
-          {/* Container Elfsight Widget */}
-          {/* Ganti min-h-[300px] menjadi min-h-[560px] sm:min-h-[580px] */}
-          <div className="w-full overflow-hidden min-h-[560px] sm:min-h-[580px] 2xl:min-h-[620px] shrink-0">
+          {/* Container Elfsight Widget (Hapus 'overflow-hidden' di sini) */}
+          <div className="w-full min-h-[560px] sm:min-h-[580px] 2xl:min-h-[620px] shrink-0">
             <ElfsightReviews />
           </div>
 
