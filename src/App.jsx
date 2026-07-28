@@ -124,10 +124,16 @@ function ElfsightReviews() {
   }, []);
 
   return (
-    <div
-      className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full overflow-hidden"
-      data-elfsight-app-lazy
-    />
+    /* 
+      1. KECILKAN margin negatif agar tidak kelewat naik (-mt-4 sm:-mt-6).
+      2. TAMBAHKAN CSS override untuk menyembunyikan header internal Elfsight.
+    */
+    <div className="-mt-3 sm:-mt-5 w-full">
+      <div
+        className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full overflow-hidden"
+        data-elfsight-app-lazy
+      />
+    </div>
   );
 }
 
@@ -320,6 +326,7 @@ function PageFooter({ content, wa }) {
 }
 
 
+
 function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, setMobileOpen }) {
   useReveal();
 
@@ -344,7 +351,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
             src={imgSrc(heroImg)}
             alt={content.brand}
             loading="eager"
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="sync"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -377,7 +384,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
           <div className="flex flex-col items-center my-2 select-none w-full">
             {/* Dynamic Styled Word: "uni" */}
             <span
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-[9rem] 3xl:text-[11rem] text-[#FF5722] leading-none drop-shadow-md -mt-2 sm:-mt-4 -mb-2 md:-mb-3 2xl:-mb-6 z-10 italic inline-flex items-baseline font-serif font-semibold"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl 2xl:text-[9rem] 3xl:text-[11rem] text-[#FF5722] leading-none drop-shadow-md -mt-8 sm:-mt-12 md:-mt-14 2xl:-mt-20 -mb-2 md:-mb-3 2xl:-mb-6 z-10 italic inline-flex items-baseline font-serif font-semibold"
               style={{ fontFamily: "'Lora', serif" }}
             >
               <span className="text-[1.35em] leading-none">u</span>
@@ -637,12 +644,12 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
       {/* REVIEWS SECTION */}
       <section
         id="reviews"
-        className="py-20 md:py-28 2xl:py-36 bg-black/25 overflow-hidden min-h-[650px] sm:min-h-[700px] 2xl:min-h-[800px] shrink-0"
+        className="pt-10 pb-16 md:pt-14 md:pb-20 2xl:pt-20 2xl:pb-28 bg-black/25 overflow-hidden shrink-0"
       >
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header Section */}
-          <div className="text-center max-w-xl 2xl:max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-xl 2xl:max-w-3xl mx-auto mb-6 sm:mb-8">
             <div className="eyebrow flex justify-center mb-3 text-gold text-xs sm:text-sm md:text-base 2xl:text-lg tracking-widest font-bold uppercase font-jp">
               Google Reviews
             </div>
@@ -651,14 +658,12 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
             </h2>
           </div>
 
-          {/* Container Elfsight Widget (Hapus 'overflow-hidden' di sini) */}
-          <div className="w-full min-h-[560px] sm:min-h-[580px] 2xl:min-h-[620px] shrink-0">
-            <ElfsightReviews />
-          </div>
+          {/* Container Elfsight Widget */}
+          <ElfsightReviews />
+
 
         </div>
       </section>
-
       <div className="wave-divider bg-black/25 w-full h-[60px] min-h-[60px] shrink-0 relative overflow-hidden" />
 
       {/* FAQ SECTION */}
@@ -783,12 +788,9 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
   );
 }
 
-
 // Helper function diekstrak ke luar agar tidak diciptakan ulang setiap render
-const getWaLink = (waProp, itemName) => {
-  if (waProp) return waProp;
-  const encodedName = encodeURIComponent(itemName || 'Menu');
-  return `https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20pesan%20${encodedName}`;
+const getWaLink = (waProp) => {
+  return waProp || '';
 };
 
 function MenuPage({ content, categories: propsCategories, items, wa, scrolled, mobileOpen, setMobileOpen }) {
@@ -920,7 +922,7 @@ function MenuPage({ content, categories: propsCategories, items, wa, scrolled, m
             )}
 
             {filteredItems.map((it, index) => {
-              const itemWa = getWaLink(wa, it.name);
+              const itemWa = getWaLink(wa);
               const isBestSeller =
                 it.isFeatured ||
                 it.is_featured ||
@@ -1138,9 +1140,7 @@ export default function App({ data }) {
   const content = data?.content || {};
   const categories = data?.categories || [];
   const items = data?.items || [];
-
-  // Definisikan instagramPosts dengan benar di sini
-  const instagramPosts = data?.instagramPosts || data?.katalog || [];
+  const instagramPosts = data?.instagramPosts || [];
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
