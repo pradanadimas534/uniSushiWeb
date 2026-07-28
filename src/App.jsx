@@ -262,20 +262,14 @@ function PageFooter({ content, wa }) {
           <div>
             <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">Order Delivery</h4>
             <div className="flex flex-col gap-2.5">
-              <a
-                // href={content.grabUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
+              <p
                 className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
                 <span>GrabFood</span>
-              </a>
-              <a
-                // href={content.gojekUrl || '#'}
-                target="_blank"
-                rel="noopener noreferrer"
+              </p>
+              <p
                 className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
                 <span>GoFood</span>
-              </a>
+              </p>
             </div>
           </div>
 
