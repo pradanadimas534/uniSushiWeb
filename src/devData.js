@@ -15,8 +15,9 @@ export const DEV_DATA = {
     address: 'Jl. Benesari, Kuta, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia',
     phone: '+62-813-3990-099',
     whatsapp: '628133990099',
-    email: 'contact@unicafebali.com',
+    email: '@unicafebali.com',
     instagram: 'unisushiasianfusion',
+    facebook : 'https://www.facebook.com/profile.php?id=61582331492032',
     hours: [
       { h: 'Open Close 12 am' },
     ],

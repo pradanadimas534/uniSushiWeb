@@ -124,10 +124,6 @@ function ElfsightReviews() {
   }, []);
 
   return (
-    /* 
-      1. KECILKAN margin negatif agar tidak kelewat naik (-mt-4 sm:-mt-6).
-      2. TAMBAHKAN CSS override untuk menyembunyikan header internal Elfsight.
-    */
     <div className="-mt-3 sm:-mt-5 w-full">
       <div
         className="elfsight-app-88a07733-6995-46aa-872b-7ad4c9c0659b w-full overflow-hidden"
@@ -287,9 +283,9 @@ function PageFooter({ content, wa }) {
 
               <a href={`mailto:${content.email || ''}`} className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Email</a>
 
-              <a href='https://www.facebook.com/people/Uni-Sport-Bar-Caf%C3%A9/61582331492032/' target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Facebook</a>
+              <a href={`${content.facebook}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Facebook</a>
 
-              <a href='' target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">TikTok</a>
+              <a href={`${content.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">TikTok</a>
             </div>
           </div>
 
