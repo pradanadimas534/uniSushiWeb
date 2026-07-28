@@ -13,37 +13,6 @@ import 'swiper/css/navigation';
 
 const rupiah = (n) => 'Rp ' + Number(n || 0).toLocaleString('id-ID');
 
-// Nyalakan mode maintenance dengan set ke true.
-const MAINTENANCE_MODE = false;
-
-function Maintenance({ content, wa }) {
-  return (
-    <div className="min-h-screen bg-ink text-paper flex items-center justify-center px-6 relative overflow-hidden font-sans">
-      <div className="absolute inset-0 opacity-[0.06] bg-seigaiha" style={{ backgroundSize: '56px 28px' }} />
-      <div className="relative text-center max-w-lg 2xl:max-w-2xl w-full mx-auto">
-        <img src={imgSrc(content.logo)} alt={content.brand || 'Uni Sushi'} className="w-20 h-20 2xl:w-28 2xl:h-28 rounded-full mx-auto mb-8 object-cover ring-1 ring-gold/40" />
-        <div className="eyebrow justify-center flex mb-4 2xl:text-base font-jp">Sedang Dalam Perbaikan</div>
-        <h1 className="text-3xl md:text-4xl 2xl:text-5xl font-semibold mb-5 leading-tight font-serif">
-          {content.brand || 'Uni Sushi'} <span className="text-gold italic">sedang berbenah</span>
-        </h1>
-        <p className="text-paper/60 leading-relaxed mb-10 text-sm md:text-base 2xl:text-lg">
-          Kami sedang menata ulang halaman ini agar lebih baik. Silakan
-          kembali beberapa saat lagi, atau hubungi kami langsung lewat
-          kontak di bawah.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <a href={wa} className="btn-coral 2xl:px-8 2xl:py-4 2xl:text-base">Hubungi via WhatsApp</a>
-          {content.email && (
-            <a href={`mailto:${content.email}`} className="inline-flex items-center justify-center rounded-full px-6 py-3 2xl:px-8 2xl:py-4 text-sm 2xl:text-base font-semibold border border-paper/25 text-paper hover:border-gold/60 hover:text-gold transition-colors">
-              {content.email}
-            </a>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function imgSrc(path) {
   if (!path) return '';
   if (/^https?:\/\//i.test(path) || path.startsWith('/')) return path;
@@ -1129,7 +1098,7 @@ function GalleryPage({ content, instagramPosts, katalog, wa, scrolled, mobileOpe
   );
 }
 
-export { Maintenance, HomePage, MenuPage, GalleryPage, TopNav, PageFooter };
+export { HomePage, MenuPage, GalleryPage, TopNav, PageFooter };
 
 export default function App({ data }) {
   // Pastikan ambil dari data dengan aman menggunakan optional chaining (?)
@@ -1162,10 +1131,6 @@ export default function App({ data }) {
   }, [content.brand]);
 
   const wa = `https://wa.me/${content.whatsapp || ''}`;
-
-  if (MAINTENANCE_MODE) {
-    return <Maintenance content={content} wa={wa} />;
-  }
 
   return (
     <>
