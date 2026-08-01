@@ -244,35 +244,94 @@ function PageFooter({ content, wa }) {
 
           {/* Connect */}
           <div>
-            <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">Connect</h4>
+            <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">
+              Connect
+            </h4>
             <div className="flex flex-col gap-2.5 2xl:gap-3">
-              <a href={wa} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">WhatsApp</a>
+              {/* WhatsApp */}
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"
+              >
+                <img src="/images/logo-wa.webp" alt="WhatsApp" className="w-5 h-5 rounded-full object-cover" />
+                <span>WhatsApp</span>
+              </a>
 
-              <a href={`https://instagram.com/${content.instagram || ''}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Instagram</a>
+              {/* Instagram */}
+              <a
+                href={`https://instagram.com/${content.instagram || ''}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"
+              >
+                <img src="/images/logo-ig.webp" alt="Instagram" className="w-5 h-5 rounded-full object-cover" />
+                <span>Instagram</span>
+              </a>
 
-              <a href={`mailto:${content.email || ''}`} className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Email</a>
+              {/* Email */}
+              <a
+                href={`mailto:${content.email || ''}`}
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"
+              >
+                <img src="/images/logo-mail.webp" alt="Email" className="w-5 h-5 rounded-full object-cover" />
+                <span>Email</span>
+              </a>
 
-              <a href={`${content.facebook}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">Facebook</a>
+              {/* Facebook */}
+              <a
+                href={`${content.facebook}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"
+              >
+                <img src="/images/logo-fb.webp" alt="Facebook" className="w-5 h-5 rounded-full object-cover" />
+                <span>Facebook</span>
+              </a>
 
-              <a href={`${content.tiktok}`} target="_blank" rel="noopener noreferrer" className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit">TikTok</a>
+              {/* TikTok */}
+              <a
+                href={`${content.tiktok}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit"
+              >
+                <img src="/images/logo-tiktok.webp" alt="TikTok" className="w-5 h-5 rounded-full object-cover" />
+                <span>TikTok</span>
+              </a>
             </div>
           </div>
 
           {/* Order for Delivery */}
           <div>
-            <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">Order Delivery</h4>
+            <h4 className="text-xs 2xl:text-sm uppercase tracking-wider text-gold font-semibold mb-4">
+              Order Delivery
+            </h4>
             <div className="flex flex-col gap-2.5">
-              <p
-                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
+              {/* GrabFood */}
+              <a
+                href={`${content.grabfood}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit cursor-pointer"
+              >
+                <img src="/images/logo-grabfood.webp" alt="GrabFood" className="w-5 h-5 rounded-full object-cover" />
                 <span>GrabFood</span>
-              </p>
-              <p
-                className="text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit" >
+              </a>
+
+              {/* GoFood */}
+              <a
+                href={`${content.gofood}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-paper/65 text-sm 2xl:text-base hover:text-gold transition-colors w-fit cursor-pointer"
+              >
+                <img src="/images/logo-gofood.webp" alt="GoFood" className="w-5 h-5 rounded-full object-cover" />
                 <span>GoFood</span>
-              </p>
+              </a>
             </div>
           </div>
-
         </div>
 
         {/* Bottom Copyright */}

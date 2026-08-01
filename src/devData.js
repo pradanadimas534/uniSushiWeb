@@ -15,16 +15,19 @@ export const DEV_DATA = {
     address: 'Jl. Benesari, Kuta, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia',
     phone: '+62-813-3990-099',
     whatsapp: '628133990099',
-    email: '@unicafebali.com',
+    email: 'UNI2025@gmail.com',
     instagram: 'unisushiasianfusion',
-    facebook : 'https://www.facebook.com/profile.php?id=61582331492032',
+    facebook : 'https://www.facebook.com/profile.php?id=61591575120771',
+    tiktok: 'https://www.tiktok.com/@uni.sport.bar.caf8',
+    grabfood: 'https://food.grab.com/id/id/restaurant/uni-sushi-kuta-delivery/6-C7XAGJTWT8DKCX',
+    gofood: 'https://gofood.link/a/SuFgZom',
     hours: [
       { h: 'Open Close 12 am' },
     ],
   },
   categories: [
     { id: 1, name: 'Soup' },
-    { id: 2, name: 'Sushi' },
+    { id: 2, name: 'Sushi (nagiri & sashimi)' },
     { id: 3, name: 'Tacho Sushi' },
     { id: 4, name: 'Sushi Combo' },
     { id: 5, name: 'Asian Food' },
@@ -37,7 +40,9 @@ export const DEV_DATA = {
     { id: 12, name: 'Appetizer' },
     { id: 13, name: 'Supreme' },
     { id: 14, name: 'Salad' },
-    { id: 15, name: 'Pizza Edition' }
+    { id: 15, name: 'Pizza Edition' },
+    { id: 16, name: 'Drinks' },
+    { id: 17, name: 'Don'},
   ],
   items: [
     // Soup
@@ -201,15 +206,15 @@ export const DEV_DATA = {
     { id: 128, categories: 15, name: 'Calsone Pizza', image: '/images/calsone_pizza.webp' },
 
     // Drinks / Uncategorized
-    { id: 129, name: 'Alvocado Coffee', image: '/images/avocado_coffee.webp' },
-    { id: 130, name: 'Bucket Bali Hai', image: '/images/bucket_bali_hai.webp' },
-    { id: 131, name: 'Chiraszi Deluxe Uni', image: '/images/chiraszi_deluxe_uni.webp' },
-    { id: 132, name: 'Expresso Martini', image: '/images/expresso_martini.webp' },
-    { id: 133, name: 'Fruid Tingle', image: '/images/fruid_tingle.webp' },
-    { id: 135, name: 'Manggo Daiquiri', image: '/images/manggo_daiquiri.webp' },
-    { id: 136, name: 'Pinacolada', image: '/images/pinacolada.webp' },
-    { id: 137, name: 'Cosmic Colanda', image: '/images/cosmic_colanda.webp' },
-    { id: 138, name: 'Sex On The Beach', image: '/images/sex_on_the_beach.webp' }
+    { id: 129, categories: 16, name: 'Alvocado Coffee', image: '/images/avocado_coffee.webp' },
+    { id: 130, categories: 16, name: 'Bucket Bali Hai', image: '/images/bucket_bali_hai.webp' },
+    { id: 131, categories: 17, name: 'Chiraszi Deluxe Uni', image: '/images/chiraszi_deluxe_uni.webp' },
+    { id: 132, categories: 16, name: 'Expresso Martini', image: '/images/expresso_martini.webp' },
+    { id: 133, categories: 16, name: 'Fruid Tingle', image: '/images/fruid_tingle.webp' },
+    { id: 135, categories: 16, name: 'Manggo Daiquiri', image: '/images/manggo_daiquiri.webp' },
+    { id: 136, categories: 16, name: 'Pinacolada', image: '/images/pinacolada.webp' },
+    { id: 137, categories: 16, name: 'Cosmic Colanda', image: '/images/cosmic_colanda.webp' },
+    { id: 138, categories: 16, name: 'Sex On The Beach', image: '/images/sex_on_the_beach.webp' }
   ],
 
   instagramPosts: [
