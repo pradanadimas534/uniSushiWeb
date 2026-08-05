@@ -17,13 +17,13 @@ export const DEV_DATA = {
     whatsapp: '628133990099',
     email: 'UNI2025@gmail.com',
     instagram: 'unisushiasianfusion',
-    facebook : 'https://www.facebook.com/profile.php?id=61591575120771',
+    facebook: 'https://www.facebook.com/profile.php?id=61591575120771',
     tiktok: 'https://www.tiktok.com/@uni.sport.bar.caf8',
     grabfood: 'https://r.grab.com/g/6-20260804_173513_af80ec77a9614b0fa708e5da88779519_MEXMPS-6-C7XAGJTWT8DKCX',
     gofood: 'https://gofood.link/a/SuFgZom',
     hours: [
-      { h: 'Open Close 12 am' },
-    ],
+      { h: '10:00 - 23:30 WITA' },
+    ]
   },
   categories: [
     { id: 1, name: 'Soup' },
@@ -42,7 +42,7 @@ export const DEV_DATA = {
     { id: 14, name: 'Salad' },
     { id: 15, name: 'Pizza Edition' },
     { id: 16, name: 'Drinks' },
-    { id: 17, name: 'Don'},
+    { id: 17, name: 'Don' },
   ],
   items: [
     // Soup
@@ -77,7 +77,7 @@ export const DEV_DATA = {
     // { id: 25, categories: 3, name: 'Burrito Sushi' },
 
     // Sushi Combo
-    { id: 26, categories: 4, name: 'Street Beet Combo', image: '/images/street_beet_combo.webp' },
+    { id: 26, categories: 4, name: 'Street Bite Combo', image: '/images/street_beet_combo.webp' },
     { id: 27, categories: 4, name: 'Sushi Lover', image: '/images/sushi_lover.webp', isFeatured: true },
     // { id: 28, categories: 4, name: 'Hangout Sushi Set' },
     // { id: 29, categories: 4, name: 'Double Site Roll' },
@@ -119,7 +119,7 @@ export const DEV_DATA = {
     // { id: 59, categories: 7, name: 'Geisha Roll' },
 
     // Western Cuisine
-    { id: 60, categories: 8, name: 'Tripel Monkey Burger', image: '/images/tripel_monkey_burger.webp' },
+    { id: 60, categories: 8, name: 'Triple Monkey Burger', image: '/images/tripel_monkey_burger.webp' },
     // { id: 61, categories: 8, name: 'Cheese Burger' },
     // { id: 62, categories: 8, name: 'Supreme Beef Burger' },
     { id: 63, categories: 8, name: 'Ultimate Burger Uni', image: '/images/ultimate_burger_uni.webp' },
@@ -190,7 +190,7 @@ export const DEV_DATA = {
     // { id: 114, categories: 14, name: 'Edamane' },
     { id: 115, categories: 14, name: 'Seaweed Salad Uni', image: '/images/seaweed_salad_uni.webp' },
     // { id: 116, categories: 14, name: 'Sunomono/Cucumber Crab Salad' },
-    { id: 117, categories: 14, name: 'Kani Crab Salad', image: '/images/kani_crab_salad.webp' },
+    { id: 117, categories: 14, name: 'Crab Salad', image: '/images/kani_crab_salad.webp' },
     // { id: 118, categories: 14, name: 'Classic Caesar Salad' },
     // { id: 119, categories: 14, name: 'Thai beef Salad' },
     // { id: 120, categories: 14, name: 'Greek Salad' },
@@ -206,14 +206,14 @@ export const DEV_DATA = {
     { id: 128, categories: 15, name: 'Calsone Pizza', image: '/images/calsone_pizza.webp' },
 
     // Drinks / Uncategorized
-    { id: 129, categories: 16, name: 'Alvocado Coffee', image: '/images/avocado_coffee.webp' },
-    { id: 130, categories: 16, name: 'Bucket Bali Hai', image: '/images/bucket_bali_hai.webp' },
-    { id: 131, categories: 17, name: 'Chiraszi Deluxe Uni', image: '/images/chiraszi_deluxe_uni.webp' },
+    { id: 129, categories: 16, name: 'Avocado Coffee', image: '/images/avocado_coffee.webp' },
+    { id: 130, categories: 16, name: 'Bucket Beer Baliha', image: '/images/bucket_bali_hai.webp' },
+    { id: 131, categories: 17, name: 'Chirashi Sushi Deluxe Uni', image: '/images/chiraszi_deluxe_uni.webp' },
     { id: 132, categories: 16, name: 'Expresso Martini', image: '/images/expresso_martini.webp' },
-    { id: 133, categories: 16, name: 'Fruid Tingle', image: '/images/fruid_tingle.webp' },
+    { id: 133, categories: 16, name: 'Fruit Tangle', image: '/images/fruid_tingle.webp' },
     { id: 135, categories: 16, name: 'Manggo Daiquiri', image: '/images/manggo_daiquiri.webp' },
     { id: 136, categories: 16, name: 'Pinacolada', image: '/images/pinacolada.webp' },
-    { id: 137, categories: 16, name: 'Cosmic Colanda', image: '/images/cosmic_colanda.webp' },
+    { id: 137, categories: 16, name: 'Cosmic Colada', image: '/images/cosmic_colanda.webp' },
     { id: 138, categories: 16, name: 'Sex On The Beach', image: '/images/sex_on_the_beach.webp' }
   ],
 
@@ -295,7 +295,7 @@ export const DEV_DATA = {
     },
     {
       q: "What are Uni Sushi's opening hours?",
-      a: "We're open daily from 11:00 AM to 12:00 AM (midnight), including weekends."
+      a: "We're open daily from 11:00 PM to 12:00 AM (midnight), including weekends."
     },
     {
       q: "What are Uni Sushi's signature menu items?",

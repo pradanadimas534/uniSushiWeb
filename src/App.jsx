@@ -785,7 +785,7 @@ function HomePage({ content, items, katalog, data, wa, scrolled, mobileOpen, set
               </div>
               <div className="flex flex-wrap gap-4 pt-3">
                 <a href={wa} className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-9 2xl:py-4 text-base sm:text-lg 2xl:text-xl font-bold bg-gold text-ink hover:bg-gold/85 transition-colors">WhatsApp</a>
-                <a href={`https://instagram.com/${content.instagram || ''}`} className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-9 2xl:py-4 text-base sm:text-lg 2xl:text-xl font-bold border border-paper/25 text-paper hover:border-paper/50 transition-colors">@{content.instagram}</a>
+                <a href={`mailto:${content.email || ''}`} className="inline-flex items-center justify-center rounded-full px-7 py-3.5 2xl:px-9 2xl:py-4 text-base sm:text-lg 2xl:text-xl font-bold border border-paper/25 text-paper hover:border-paper/50 transition-colors">Email</a>
               </div>
             </div>
             {/* Hapus class 'reveal' dari div wrapper ini */}
