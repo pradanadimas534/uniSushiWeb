@@ -19,7 +19,7 @@ export const DEV_DATA = {
     instagram: 'unisushiasianfusion',
     facebook : 'https://www.facebook.com/profile.php?id=61591575120771',
     tiktok: 'https://www.tiktok.com/@uni.sport.bar.caf8',
-    grabfood: 'https://food.grab.com/id/id/restaurant/uni-sushi-kuta-delivery/6-C7XAGJTWT8DKCX',
+    grabfood: 'https://r.grab.com/g/6-20260804_173513_af80ec77a9614b0fa708e5da88779519_MEXMPS-6-C7XAGJTWT8DKCX',
     gofood: 'https://gofood.link/a/SuFgZom',
     hours: [
       { h: 'Open Close 12 am' },
